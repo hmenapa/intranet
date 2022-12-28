@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from seantheme.com/color-admin-v4.3/admin/assets/plugins/easy-pie-chart-2.1.4/demo/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 01 Feb 2019 04:01:09 GMT -->
+<head>
+	<meta charset="UTF-8"/>
+	<title>vanilla</title>
+	<meta name="viewport" content="width=device-width"/>
+	<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+	<ul>
+		<li><a href="index-2.html" class="active">Vanilla JS</a></li>
+		<li><a href="jquery.html">jQuery plugin</a></li>
+		<li><a href="angular.html">Angular module</a></li>
+		<li><a href="requirejs.html">RequireJS module</a></li>
+	</ul>
+
+	<span class="chart" data-percent="86">
+		<span class="percent"></span>
+	</span>
+
+	<span class="btn js_update">Update chart</span>
+
+	<script src="../dist/easypiechart.min.js"></script>
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var chart = window.chart = new EasyPieChart(document.querySelector('span'), {
+			easing: 'easeOutElastic',
+			delay: 3000,
+			onStep: function(from, to, percent) {
+				this.el.children[0].innerHTML = Math.round(percent);
+			}
+		});
+
+		document.querySelector('.js_update').addEventListener('click', function(e) {
+			chart.update(Math.random()*200-100);
+		});
+
+	});
+	</script>
+</body>
+
+<!-- Mirrored from seantheme.com/color-admin-v4.3/admin/assets/plugins/easy-pie-chart-2.1.4/demo/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 01 Feb 2019 04:01:11 GMT -->
+</html>
